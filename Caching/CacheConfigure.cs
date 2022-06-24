@@ -3,14 +3,14 @@ using StackExchange.Redis;
 
 namespace CacheWebApi.Caching;
 
+public enum CachingType
+{
+    InMemoryAspNet,
+    DistributedRedis
+}
+
 public static class CacheConfigure
 {
-    public enum CachingType
-    {
-        InMemoryAspNet,
-        DistributedRedis
-    }
-    
     public static void AddCachingService(this WebApplicationBuilder builder, CachingType cachingType)
     {
         switch (cachingType)
